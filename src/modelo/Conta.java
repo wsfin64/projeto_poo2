@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Conta {
 
     private String numero;
-    private Double saldo;
+    protected Double saldo;
     private String chavePiks;
     private String tipochavePiks;
     final ArrayList<Lancamento> lancamentos = new ArrayList<>();
@@ -68,16 +68,20 @@ public class Conta {
         this.saldo = this.saldo + quantia;
     }
 
-    public void transferir(Conta destino, double quantia) throws Exception{
-        if (quantia <= 0.0){
-            throw new Exception("Valor inválido");
-        }
-
+    public void debitar(double quantia) throws Exception{
         if (this.saldo - quantia < 0.0){
             throw new Exception("saldo insuficiente");
         }
 
         this.saldo = this.saldo - quantia;
+    }
+
+    public void transferir(Conta destino, double quantia) throws Exception{
+        if (quantia <= 0.0){
+            throw new Exception("Valor inválido");
+        }
+
+        this.debitar(quantia);
         destino.creditar(quantia);
     }
 
