@@ -8,12 +8,11 @@ public class Correntista {
     private String email;
     private Conta conta;
 
-    public Correntista(String cpf, String nome, String telefone, String email, Conta conta){
+    public Correntista(String cpf, String nome, String telefone, String email){
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
-        this.conta = conta;
     }
 
     public String getCpf() {

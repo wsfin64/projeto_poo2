@@ -11,9 +11,8 @@ public class Conta {
     final ArrayList<Lancamento> lancamentos = new ArrayList<>();
     private Correntista correntista;
 
-    public Conta(String numero, Correntista correntista){
+    public Conta(String numero){
         this.numero = numero;
-        this.correntista = correntista;
     }
 
     public String getNumero() {
@@ -60,4 +59,26 @@ public class Conta {
     public void setCorrentista(Correntista correntista) {
         this.correntista = correntista;
     }
+
+    public void creditar(double quantia) throws Exception{
+        if (quantia <= 0.0){
+            throw new Exception("Valor inválido");
+        }
+
+        this.saldo = this.saldo + quantia;
+    }
+
+    public void transferir(Conta destino, double quantia) throws Exception{
+        if (quantia <= 0.0){
+            throw new Exception("Valor inválido");
+        }
+
+        if (this.saldo - quantia < 0.0){
+            throw new Exception("saldo insuficiente");
+        }
+
+        this.saldo = this.saldo - quantia;
+        destino.creditar(quantia);
+    }
+
 }
