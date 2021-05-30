@@ -31,6 +31,7 @@ public class TelaPrincipal {
     private JMenuItem mntmApagar;
     private JMenuItem mntmCriarChave;
     private JMenuItem mntmTransferir;
+    private JMenuItem mntmCreditar;
     private JMenu mnListagem;
     private JMenuItem mntmListarContas;
     private JMenuItem mntmListarCorrentistas;
@@ -152,10 +153,22 @@ public class TelaPrincipal {
         mntmTransferir = new JMenuItem("Transferir");
         mntmTransferir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                // criar tela de transferencia
 
             }
         });
         mnConta.add(mntmTransferir);
+
+        mntmCreditar = new JMenuItem("Creditar");
+        mntmCreditar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaCreditar telaCreditar = new TelaCreditar();
+                telaCreditar.setVisible(true);
+            }
+        });
+        mnConta.add(mntmCreditar);
+
 
         //-------------MENU Listagem-----------------------------------
         mnListagem = new JMenu("Listagem");

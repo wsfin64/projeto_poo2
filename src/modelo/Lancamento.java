@@ -37,4 +37,8 @@ public class Lancamento {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
+    public String toString(){
+        return "Data: " + datahora + " Valor: " + valor + " numero da conta: " + numero;
+    }
 }
