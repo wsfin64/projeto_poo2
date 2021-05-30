@@ -7,6 +7,7 @@ import modelo.Lancamento;
 import repositorio.Repositorio;
 
 import java.security.spec.ECField;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -141,5 +142,13 @@ public class Fachada {
         }
 
         contaOrigem.transferir(contaDestino, quantia);
+        Lancamento lancamentoOrigem = new Lancamento(LocalDateTime.now(), (0 - quantia), contaDestino.getNumero());
+        Lancamento lancamentoDestino = new Lancamento(LocalDateTime.now(), quantia, contaOrigem.getNumero());
+
+        contaOrigem.adicionarLancamento(lancamentoOrigem);
+        contaDestino.adicionarLancamento(lancamentoDestino);
+
+        repositorio.adicionarLancamento(lancamentoOrigem);
+        repositorio.adicionarLancamento(lancamentoOrigem);
     }
 }

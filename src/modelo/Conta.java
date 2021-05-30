@@ -83,9 +83,12 @@ public class Conta {
         }
 
         this.debitar(quantia);
-        this.lancamentos.add(new Lancamento(LocalDateTime.now(), (0 - quantia), destino.getNumero()));
         destino.creditar(quantia);
-        destino.lancamentos.add(new Lancamento(LocalDateTime.now(), quantia, this.getNumero()));
+
+    }
+
+    public void adicionarLancamento(Lancamento lancamento){
+        lancamentos.add(lancamento);
     }
 
     public String toString(){
