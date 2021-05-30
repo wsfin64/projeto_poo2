@@ -66,7 +66,7 @@ public class Fachada {
         System.out.println(cpf);
     }
 
-    // teste
+
     public static void criarChavePIKS(String cpf, String tipoChave) throws Exception {
 
         Correntista correntista = repositorio.localizarCorrentista(cpf);
@@ -113,6 +113,33 @@ public class Fachada {
         conta.setChavePiks(chave);
 
         repositorio.adicionarConta(conta);
+    }
 
+    public static void creditar(String cpf, double quantia) throws Exception{
+        Correntista correntista = repositorio.localizarCorrentista(cpf);
+
+        if (correntista == null){
+            throw new Exception("Correntista inexistente");
+        }
+
+        Conta conta = correntista.getConta();
+        conta.creditar(quantia);
+    }
+
+    public static void transferir(String cpf, String chavePIKS, double quantia) throws Exception{
+        Correntista correntista = repositorio.localizarCorrentista(cpf);
+        if (correntista == null){
+            throw new Exception("Correntista inexistente");
+
+        }
+
+        Conta contaOrigem = correntista.getConta();
+
+        Conta contaDestino = repositorio.localizarConta(chavePIKS);
+        if (contaDestino == null){
+            throw new Exception("Conta de destino inválida");
+        }
+
+        contaOrigem.transferir(contaDestino, quantia);
     }
 }
