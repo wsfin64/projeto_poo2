@@ -54,4 +54,8 @@ public class Correntista {
     public void setConta(Conta conta) {
         this.conta = conta;
     }
+
+    public String toString(){
+        return "Nome: " + this.nome + " CPF: " + this.cpf;
+    }
 }

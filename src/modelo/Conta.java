@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Conta {
 
     private String numero;
-    protected Double saldo;
+    protected double saldo;
     private String chavePiks;
     private String tipochavePiks;
     final ArrayList<Lancamento> lancamentos = new ArrayList<>();
@@ -85,4 +85,7 @@ public class Conta {
         destino.creditar(quantia);
     }
 
+    public String toString(){
+        return "Titular: " + this.correntista.getNome() + " - Saldo R$: " + this.saldo + " - Chave PIKS: " + this.chavePiks;
+    }
 }
