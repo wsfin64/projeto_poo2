@@ -111,9 +111,13 @@ public class Fachada {
             throw new Exception("Já existe uma chave neste valor");
         }
 
-        conta.setChavePiks(chave);
+        if (conta.getChavePiks() == null){
+            conta.setChavePiks(chave);
+            repositorio.adicionarConta(conta);
+        }else {
+            conta.setChavePiks(chave);
+        }
 
-        repositorio.adicionarConta(conta);
     }
 
     public static void creditar(String cpf, double quantia) throws Exception{
@@ -139,6 +143,10 @@ public class Fachada {
         Conta contaDestino = repositorio.localizarConta(chavePIKS);
         if (contaDestino == null){
             throw new Exception("Conta de destino inválida");
+        }
+
+        if (contaDestino.equals(contaOrigem)){
+            throw new Exception("As contas de origem e destino são iguais");
         }
 
         contaOrigem.transferir(contaDestino, quantia);

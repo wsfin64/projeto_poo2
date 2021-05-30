@@ -105,10 +105,11 @@ public class TelaCriarConta extends JFrame {
                     if(radioButton_1.isSelected()) {
                         String s = JOptionPane.showInputDialog("qual o limite de saldo negativo da conta?");
                         double limite = Double.parseDouble(s);
-                        conta = Fachada.criarConta(numero,cpf,telefone,email,nome);
+                        conta = Fachada.criarContaEspecial(numero, limite, cpf, telefone, email, nome);
                     }
                     else
                         conta = Fachada.criarConta(numero,cpf,telefone,email,nome);
+                        lblmsg.setText("Conta criada com sucesso");
 
                     //	lblmsg.setText("cadastrou conta:"+conta.getNumero()+" correntista:"+conta.getCorrentista().getCpf() );
                     textField.setText("");
