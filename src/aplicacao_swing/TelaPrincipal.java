@@ -153,7 +153,8 @@ public class TelaPrincipal {
         mntmTransferir = new JMenuItem("Transferir");
         mntmTransferir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                // criar tela de transferencia
+                TelaTransferir telaTransferir = new TelaTransferir();
+                telaTransferir.setVisible(true);
 
             }
         });

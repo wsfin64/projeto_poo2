@@ -55,7 +55,7 @@ public class TelaCreditar extends JFrame {
                 try {
                     String cpf = entradataCPF.getText();
                     String valor = entradaValor.getText();
-                    int quantia = Integer.parseInt(valor);
+                    double quantia = Double.parseDouble(valor);
                     Fachada.creditar(cpf, quantia);
 
                     mensagem.setText("Deposito realizado com sucesso");
