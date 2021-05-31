@@ -177,6 +177,27 @@ public class Fachada {
         }
     }
 
+    public Conta obterContaTop() throws Exception{
+        int maior = 0;
+        Conta contaTop = null;
+
+        if (repositorio.getContas().size() == 0){
+            throw new Exception("Não há contas no repositario");
+        }
+
+        for (Conta conta : repositorio.getContas()){
+            if (conta.getLancamentos().size() > maior){
+                maior = conta.getLancamentos().size();
+                contaTop = conta;
+            }
+        }
+
+        if (contaTop == null){
+            throw new Exception("Não há contas tops");
+        }
+
+        return contaTop;
+    }
 
     public static Conta obterConta(String cpf) throws Exception{
         Correntista correntista = repositorio.localizarCorrentista(cpf);
