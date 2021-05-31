@@ -176,4 +176,17 @@ public class Fachada {
             // falta verificar atravez da tela de lançamento
         }
     }
+
+
+    public static Conta obterConta(String cpf) throws Exception{
+        Correntista correntista = repositorio.localizarCorrentista(cpf);
+
+        if (correntista == null){
+            throw new Exception("Correntista inexistente");
+        }
+
+        Conta conta = correntista.getConta();
+
+        return conta;
+    }
 }
