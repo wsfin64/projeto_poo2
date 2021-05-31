@@ -8,8 +8,7 @@ import repositorio.Repositorio;
 
 import java.security.spec.ECField;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Fachada {
 
@@ -61,12 +60,6 @@ public class Fachada {
         repositorio.adicionarCorrentista(correntista);
         return conta;
     }
-
-    //teste
-    public static void apagarConta(String cpf){
-        System.out.println(cpf);
-    }
-
 
     public static void criarChavePIKS(String cpf, String tipoChave) throws Exception {
 
@@ -158,5 +151,29 @@ public class Fachada {
 
         repositorio.adicionarLancamento(lancamentoOrigem);
         repositorio.adicionarLancamento(lancamentoOrigem);
+    }
+
+    public static void apagarConta(String cpf) throws Exception {
+        Correntista correntista = repositorio.localizarCorrentista(cpf);
+
+        if (correntista == null){
+            throw new Exception("Correntista inexistente");
+        }
+
+        Conta conta = correntista.getConta();
+        if (conta.getSaldo() == 0){
+            List<Lancamento> lancamentos = conta.getLancamentos();
+
+            if (!lancamentos.isEmpty()){
+                for (Lancamento la : lancamentos){
+                    repositorio.removerLancamento(la);
+                }
+            }
+
+            repositorio.removerCorrentista(conta.getCorrentista());
+            repositorio.removerConta(conta);
+
+            // falta verificar atravez da tela de lançamento
+        }
     }
 }
