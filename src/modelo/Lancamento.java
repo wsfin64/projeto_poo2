@@ -1,8 +1,11 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Lancamento {
+
+    private DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     private LocalDateTime datahora;
     private Double valor;
@@ -39,6 +42,10 @@ public class Lancamento {
     }
 
     public String toString(){
-        return "Data: " + datahora + " Valor: " + valor + " numero da conta: " + numero;
+        if (valor > 0){
+            return "Data: " + datahora.format(formater) + " Valor: " + valor + " Conta origem: " + numero;
+        }
+
+        return "Data: " + datahora.format(formater) + " Valor: " + valor + " Conta destino: " + numero;
     }
 }
