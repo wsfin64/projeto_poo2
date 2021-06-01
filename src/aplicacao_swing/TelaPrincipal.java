@@ -101,19 +101,19 @@ public class TelaPrincipal {
             }
         });
 
-        frame.setBounds(100, 100, 384, 271);
+        frame.setBounds(100, 100, 500, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         //imagem de fundo
-//        label = new JLabel("");
-//        label.setBounds(0, 0, 384, 220); //fundo da janela
-//
-//        ImageIcon imagem = new ImageIcon(getClass().getResource("/imagens/dinheiro.jpeg"));
-//        imagem = new ImageIcon(imagem.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT));
-//        label.setIcon(imagem);
-//        frame.getContentPane().add(label);
-//        frame.setResizable(false);
+        label = new JLabel("");
+        label.setBounds(0, 0, 512, 365); //fundo da janela
+
+        ImageIcon imagem = new ImageIcon(getClass().getResource("/imagens/banco.jpg"));
+        imagem = new ImageIcon(imagem.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT));
+        label.setIcon(imagem);
+        frame.getContentPane().add(label);
+        frame.setResizable(false);
 
         //-------------BARRA DE MENU-----------------------------------
         JMenuBar menuBar = new JMenuBar();
