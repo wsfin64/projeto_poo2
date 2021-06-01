@@ -104,6 +104,10 @@ public class TelaCriarConta extends JFrame {
                     Conta conta;
                     if(radioButton_1.isSelected()) {
                         String s = JOptionPane.showInputDialog("qual o limite de saldo negativo da conta?");
+                        if (s.equals("")){
+                            throw new Exception("É necessário informar um valor de limite");
+                        }
+
                         double limite = Double.parseDouble(s);
                         conta = Fachada.criarContaEspecial(numero, limite, cpf, telefone, email, nome);
                     }
