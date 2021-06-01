@@ -34,6 +34,13 @@ public class Fachada {
             throw new Exception("Correntista já existe: " + cpf);
         }
 
+        for (Conta cc : repositorio.getContas()){
+
+            if (cc.getNumero().equals(numero)){
+                throw new Exception("Já existe uma conta com este número");
+            }
+        }
+
         correntista = new Correntista(cpf, nome, telefone, email);
         Conta conta = new Conta(numero);
 
