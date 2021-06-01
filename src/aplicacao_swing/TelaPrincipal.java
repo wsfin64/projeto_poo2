@@ -133,7 +133,7 @@ public class TelaPrincipal {
         mnConta.add(mntmCadastrar);
 
 
-        mntmApagar = new JMenuItem("Apagar");
+        mntmApagar = new JMenuItem("Apagar Conta");
         mntmApagar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 TelaApagarConta j = new TelaApagarConta();
@@ -161,7 +161,7 @@ public class TelaPrincipal {
         });
         mnConta.add(mntmTransferir);
 
-        mntmCreditar = new JMenuItem("Creditar");
+        mntmCreditar = new JMenuItem("Depositar");
         mntmCreditar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -92,6 +92,6 @@ public class Conta {
     }
 
     public String toString(){
-        return "Titular: " + this.correntista.getNome() + " - Saldo R$: " + this.saldo + " - Chave PIKS: " + this.chavePiks;
+        return "Titular: " + this.correntista.getNome() + " - Saldo R$: " + this.saldo + " - Chave PIKS: " + this.chavePiks + " - Lancamentos: " + this.lancamentos;
     }
 }

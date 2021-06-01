@@ -172,8 +172,9 @@ public class Fachada {
 
             repositorio.removerCorrentista(conta.getCorrentista());
             repositorio.removerConta(conta);
-
-            // falta verificar atravez da tela de lançamento
+        }
+        else {
+            throw new Exception("A conta não está zerada!");
         }
     }
 
