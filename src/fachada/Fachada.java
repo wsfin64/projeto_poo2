@@ -150,7 +150,7 @@ public class Fachada {
         contaDestino.adicionarLancamento(lancamentoDestino);
 
         repositorio.adicionarLancamento(lancamentoOrigem);
-        repositorio.adicionarLancamento(lancamentoOrigem);
+        repositorio.adicionarLancamento(lancamentoDestino);
     }
 
     public static void apagarConta(String cpf) throws Exception {

@@ -22,6 +22,7 @@ import fachada.Fachada;
 import modelo.Conta;
 import modelo.ContaEspecial;
 import modelo.Correntista;
+import modelo.Lancamento;
 
 public class TelaPrincipal {
     private JFrame frame;
@@ -122,7 +123,7 @@ public class TelaPrincipal {
         mnConta = new JMenu("Conta");
         menuBar.add(mnConta);
 
-        mntmCadastrar = new JMenuItem("Criar");
+        mntmCadastrar = new JMenuItem("Criar Conta");
         mntmCadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 TelaCriarConta j = new TelaCriarConta();
@@ -216,6 +217,17 @@ public class TelaPrincipal {
         mntmListarlancamentos = new JMenuItem("Lancamentos");
         mntmListarlancamentos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                String texto;
+                ArrayList<Lancamento> lista = Fachada.listarLancamentos();
+                texto = "Listagem de Lançamentos: \n";
+                if (lista.isEmpty()){
+                    texto += "Não existe lançamentos \n";
+                }else
+                    for (Lancamento l : lista){
+                        texto += l + "\n";
+                }
+                TelaListagem tela = new TelaListagem(texto);
+                tela.setVisible(true);
             }
         });
         mnListagem.add(mntmListarlancamentos);
