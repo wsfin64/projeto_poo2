@@ -38,6 +38,7 @@ public class TelaPrincipal {
     private JMenuItem mntmListarCorrentistas;
     private JMenuItem mntmListarlancamentos;
     private JMenu mnConsulta;
+    private JMenuItem mntmContaTop;
 
     /**
      * Launch the application.
@@ -231,18 +232,6 @@ public class TelaPrincipal {
             }
         });
         mnListagem.add(mntmListarlancamentos);
-
-        //-------------MENU-----------------------------------
-        mnConsulta = new JMenu("conta Top");
-        menuBar.add(mnConsulta);
-        mnConsulta.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent arg0) {
-                //				TelaConsulta j = new TelaConsulta();
-                //				j.setVisible(true);
-            }
-        });
-
 
     }
 }

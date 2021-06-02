@@ -185,7 +185,7 @@ public class Fachada {
         }
     }
 
-    public Conta obterContaTop() throws Exception{
+    public static Conta obterContaTop() throws Exception{
         int maior = 0;
         Conta contaTop = null;
 
